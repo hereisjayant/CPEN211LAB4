@@ -1,0 +1,53 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/herei/Desktop/CPEN211/programs/lab3
+vlab4_top
+Z0 !s110 1592813100
+!i10b 1
+!s100 16OZTzSjZR9RG>Hkl<]g`0
+I97fkgiI_RFXEz5c>Xm<Td1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/herei/Desktop/CPEN211/programs/lab4
+Z3 w1592813088
+Z4 8C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
+Z5 FC:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
+L0 1
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1592813100.000000
+Z8 !s107 C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
+!i113 1
+Z10 o-work work
+Z11 tCvgOpt 0
+vvDFF
+R0
+!i10b 1
+!s100 O;XPGDR]f7?LjjFjhOj0m3
+IRTk1:AlSDVMbR4AnWVfaP0
+R1
+R2
+R3
+R4
+R5
+L0 47
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+nv@d@f@f
