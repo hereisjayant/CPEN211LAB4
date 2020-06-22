@@ -1,9 +1,3 @@
-module lab4_top(SW,KEY,HEX0);
-  input [9:0] SW; //Use SW[0] to change the direction. If 1(up) it works as intended, if 0 it cycles backwards.
-  input [3:0] KEY; // KEY[0] is the clock, KEY[1] is the reset button. Note these are 1 when unpressed, 0 when pressed.
-  output [6:0] HEX0; //Use HEX0 for the output
-
-  reg [6:0] HEX0;
 
   `define SW 3       //Roll no. 5 7 9 8 3, one state for each number
   `define Sa 3'b000  //5
@@ -19,15 +13,21 @@ module lab4_top(SW,KEY,HEX0);
   `define N8 7'b0000000 //8
   `define N3 7'b0110000 //3
 
+module lab4_top(SW,KEY,HEX0);
+  input [9:0] SW; //Use SW[0] to change the direction. If 1(up) it works as intended, if 0 it cycles backwards.
+  input [3:0] KEY; // KEY[0] is the clock, KEY[1] is the reset button. Note these are 1 when unpressed, 0 when pressed.
+  output [6:0] HEX0; //Use HEX0 for the output
 
+
+  reg [6:0] HEX0;
   wire [2:0] present_state, next_state_reset;
   reg [2:0] next_state;
 
-  vDFF #(`SW) STATE(clk,next_state_reset,present_state);
+  vDFF #(`SW) STATE(KEY[0],next_state_reset,present_state); //triggers the clock when KEY[0] is 0.
 
   // reset logic
-  assign next_state_reset = KEY[1] ? `Sa : next_state; //checks if reset is on
-
+  assign next_state_reset = KEY[1] ? `Sa : next_state; //checks if reset is on, checks for a 0 notifying the button is pressed
+  assign present_state= `Sa;
   // next state and output logic
   always @(*) begin
     case (present_state) //Checks the present state and the Switch
