@@ -1,5 +1,5 @@
 
-  `define SW 3       //Roll no. 5 7 9 8 3, one state
+  `define SW 3       //Roll no. 5 7 9 8 3, one state for each number
   `define Sa 3'b000  //5
   `define Sb 3'b001  //7
   `define Sc 3'b010  //9
@@ -27,6 +27,7 @@ module lab4_top(SW,KEY,HEX0);
 
   // reset logic
   assign next_state_reset = KEY[1] ? `Sa : next_state; //checks if reset is on, checks for a 0 notifying the button is pressed
+  assign present_state= `Sa;
   // next state and output logic
   always @(*) begin
     case (present_state) //Checks the present state and the Switch
