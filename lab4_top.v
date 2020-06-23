@@ -20,29 +20,30 @@ module lab4_top(SW,KEY,HEX0);
   reg [6:0] HEX0;
 
   reg [2:0] present_state;
-  reg[2:0] next_state;
 
   // next state and output logic
+
   always @(posedge !KEY[0]) begin
+
     if(!KEY[1])begin
       present_state = `Sa;
       HEX0 = `N5;
       end
     else begin
       case (present_state) //Checks the present state and the Switch
-        `Sa: present_state = SW[0] ? `Sb : `Se; //checks the current state and the switch and accordingly
-        `Sb: present_state = SW[0] ? `Sc : `Sa; // assigns the next state, and the output to HEX0
-        `Sc: present_state = SW[0] ? `Sd : `Sb;
-        `Sd: present_state = SW[0] ? `Se : `Sc;
-        `Se: present_state = SW[0] ? `Sa : `Sd;
+        `Sa: present_state <= SW[0] ? 3'b001 : 3'b100 ; //checks the current state and the switch and accordingly
+        `Sb: present_state <= SW[0] ? 3'b010 : 3'b000; // assigns the next state, and the output to HEX0
+        `Sc: present_state <= SW[0] ? 3'b011 : 3'b001;
+        `Sd: present_state <= SW[0] ? 3'b100 : 3'b010;
+        `Se: present_state <= SW[0] ? 3'b001 : 3'b011;
         default: present_state = 3'bxxx;     /// checks for errors
       endcase
       case(present_state)
-        `Sa: HEX0= `N5;
-        `Sb: HEX0= `N7;
-        `Sc: HEX0= `N9;
-        `Sd: HEX0= `N8;
-        `Se: HEX0= `N3;
+        `Sa: HEX0= 7'b0010010;
+        `Sb: HEX0= 7'b1111000;
+        `Sc: HEX0= 7'b0010000;
+        `Sd: HEX0= 7'b0000000;
+        `Se: HEX0= 7'b0110000;
       endcase
     end
   end
