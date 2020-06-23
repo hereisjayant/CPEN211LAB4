@@ -1,11 +1,4 @@
 
-  `define SW 3       //Roll no. 5 7 9 8 3, one state for each number
-  `define Sa 3'b000  //5
-  `define Sb 3'b001  //7
-  `define Sc 3'b010  //9
-  `define Sd 3'b011  //8
-  `define Se 3'b100  //3
-
   //defining the codes for the HEX display
   `define N5 7'b0010010 //5
   `define N7 7'b1111000 //7
