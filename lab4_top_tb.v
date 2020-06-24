@@ -7,12 +7,14 @@ module lab4_top_tb();
   lab4_top test(SW, KEY, HEX0); //creating a module
 
   initial begin
-    KEY[1] = 1;#5;
-    SW[0]=1;
-    KEY[0] = 1; #5;
     forever begin
       KEY[0] = 0; #5;
       KEY[0] = 1; #5;
     end
+    KEY[1] = 0;#5;
+    KEY[1] = 1;#5;
+    SW[0]=1;
+    KEY[0] = 1; #5;
+
   end
 endmodule

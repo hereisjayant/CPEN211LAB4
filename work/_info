@@ -9,66 +9,66 @@ z2
 cModel Technology
 dC:/Users/herei/Desktop/CPEN211/programs/lab3
 vlab4_top
-Z0 !s110 1592821589
+Z0 !s110 1592925460
 !i10b 1
-!s100 >4zDj8Zln;0NidWNOfgS]1
-I3Z`eW7H;`NX:FbnE57Jk`2
+!s100 1<Ykd6OGcMe5ZU0VQ1IA72
+IW8H1e<BP[P<DA=645@LOl0
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dC:/Users/herei/Desktop/CPEN211/programs/lab4
-Z3 w1592821582
-Z4 8C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
-Z5 FC:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
+w1592925157
+Z3 8C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
+Z4 FC:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
 L0 16
-Z6 OV;L;10.5b;63
+Z5 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1592821588.000000
-Z8 !s107 C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
-Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
+Z6 !s108 1592925460.000000
+Z7 !s107 C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
+Z8 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
 !i113 1
-Z10 o-work work
-Z11 tCvgOpt 0
+Z9 o-work work
+Z10 tCvgOpt 0
 vlab4_top_tb
 R0
 !i10b 1
-!s100 a8DF[]f=Ng1mA?>Jldg3Y2
-I;mA:M6XdK4k^F7OPX^Q2`1
+!s100 A24>`;N@ZobCk_P:TCGM52
+I4Wl5b;j4GeXb<ic5MS=gb0
 R1
 R2
-w1592820725
+w1592925448
 8C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v
 FC:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v
 L0 1
-R6
+R5
 r1
 !s85 0
 31
-!s108 1592821589.000000
+R6
 !s107 C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v|
 !i113 1
+R9
 R10
-R11
 vvDFF
-R0
+!s110 1592892929
 !i10b 1
-!s100 AR?`n:60e:Pdl8OaCUWie1
-IRz?27U1JMlBH^>8bMN<UG2
+!s100 O;XPGDR]f7?LjjFjhOj0m3
+IRTk1:AlSDVMbR4AnWVfaP0
 R1
 R2
+w1592892741
 R3
 R4
+L0 47
 R5
-L0 51
-R6
 r1
 !s85 0
 31
+!s108 1592892928.000000
 R7
 R8
-R9
 !i113 1
+R9
 R10
-R11
 nv@d@f@f
