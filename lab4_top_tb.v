@@ -1,72 +1,183 @@
+`define SW 3       //Roll no. 5 7 9 8 3, one state for each number
+`define Sa 3'b000  //5
+`define Sb 3'b001  //7
+`define Sc 3'b010  //9
+`define Sd 3'b011  //8
+`define Se 3'b100  //3
+
+//defining the codes for the HEX display
+`define N5 7'b0010010 //5
+`define N7 7'b1111000 //7
+`define N9 7'b0010000 //9
+`define N8 7'b0000000 //8
+`define N3 7'b0110000 //3
+
 module lab4_top_tb();
 
   reg[9:0] SW; //input to the lab4_top
   reg[3:0] KEY; //input to the lab4_top
+  reg err;
+
   wire [6:0]HEX0;  //output to the lab4_top
 
-  lab4_top test(SW, KEY, HEX0); //creating a module
+  lab4_top dut(SW, KEY, HEX0); //creating a module
+
+  //clock
+  initial begin
+    KEY[0] = 1; #5; //the clock starts with a 0 i.e. equivalent to 1 here
+    forever begin
+      KEY[0] = 0; #5;
+      KEY[0] = 1; #5;
+    end
+  end
 
   initial begin
+  KEY[1] = 1'b0; // resets the DUT
+  SW[0] = 1'b1; //clockwise
+  err = 1'b0;
+  #10;  // wait until after rising edge of clock at time 5, before rising edge at time 15
 
-    //case 0 : pressing nothing with SW[1] on, we shold be in the first STATE
-    SW = 1'b1;// NOTE: sw[0] is on
-    KEY[0] = 1'b1; // all the KEYs are unpressed
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 0 times output is %b, expected output is %b", HEX0, 7'b0010010);
+  // check whether in expected state
+  if( lab4_top_tb.dut.present_state !== `Sa ) begin // checks the reset
+    $display("ERROR ** state is %b, expected %b",lab4_top_tb.dut.present_state, `Sa );
+    err = 1'b1;
+  end
+  // also check whether output is correct
+  if( HEX0 !== `N5 ) begin
+   $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
+   err = 1'b1;
+  end
+  KEY[1] = 1; //de-asserting reset at the end of first 10 secs
 
-    //case 1 : pressing key once with SW[1] on, we shold be in the second
-    KEY[0] = 1'b0; // KEY[0] is pressed once
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b1111000);
-    KEY[0] = 1'b1;
 
-    //case 2 : pressing key two times with SW[1] on, we shold be in the third STATE
-    KEY[0] = 1'b0; // KEY[0] is pressed again
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b0010000);
-    KEY[0] = 1'b1;
+//NOTE: following are the tests for clockwise scrolling of numbers
+  $display("checking Sa->Sb");
+    SW[0] = 1; // when in Sa should go to state Sb
+    #10; // wait for rising edge of clock before checking states and output
+    if( lab4_top_tb.dut.present_state !== `Sb ) begin
+       $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sb );
+       err = 1'b1;
+    end
+    if( HEX0 !== `N7 ) begin
+       $display("ERROR ** output is %b, expected %b", HEX0, `N7 );
+       err = 1'b1;
+    end
 
-    //case 3 : pressing key 3 times with SW[1] on, we shold be in the fourth STATE
-    KEY[0] = 1'b0; // KEY[0] is pressed again
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b0000000);
-    KEY[0] = 1'b1;
+    $display("checking Sb->Sc");
+      SW[0] = 1; // when in Sb should go to state Sc
+      #10; // wait for rising edge of clock before checking states and output
+      if( lab4_top_tb.dut.present_state !== `Sc ) begin
+         $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sc );
+         err = 1'b1;
+      end
+      if( HEX0 !== `N9 ) begin
+         $display("ERROR ** output is %b, expected %b", HEX0, `N9 );
+         err = 1'b1;
+      end
 
-    //case 4 : pressing key 4th time with SW[1] on, we shold be in the fifth state
-    KEY = 4'b1110; // KEY[0] is pressed once
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b0110000);
+      $display("checking Sc->Sd");
+        SW[0] = 1; // when in Sc should go to state Sd
+        #10; // wait for rising edge of clock before checking states and output
+        if( lab4_top_tb.dut.present_state !== `Sd ) begin
+           $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sd );
+           err = 1'b1;
+        end
+        if( HEX0 !== `N8 ) begin
+           $display("ERROR ** output is %b, expected %b", HEX0, `N8 );
+           err = 1'b1;
+        end
 
-    //case 5 : pressing key 5th time with SW[1] on, we shold be in the first state again
-    KEY = 4'b1110; // KEY[0] is pressed once
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b0010010);
+        $display("checking Sd->Se");
+          SW[0] = 1; // when in Sd should go to state Se
+          #10; // wait for rising edge of clock before checking states and output
+          if( lab4_top_tb.dut.present_state !== `Se ) begin
+             $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Se );
+             err = 1'b1;
+          end
+          if( HEX0 !== `N3 ) begin
+             $display("ERROR ** output is %b, expected %b", HEX0, `N3 );
+             err = 1'b1;
+          end
 
-    //case 6 : pressing key 6th time with SW[1] on, we shold be in the second STATE
-    KEY = 4'b1110; // KEY[0] is pressed once
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b1111000);
+          $display("checking Se->Sa");
+            SW[0] = 1; // when in Sb should go to state Sc
+            #10; // wait for rising edge of clock before checking states and output
+            if( lab4_top_tb.dut.present_state !== `Sa ) begin
+               $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sa );
+               err = 1'b1;
+            end
+            if( HEX0 !== `N5 ) begin
+               $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
+               err = 1'b1;
+            end
 
-    //case 7 : pressing key 7th time with SW[1] OFF, we shold be back to the first state
-    SW = 10'b0000000000;// NOTE: sw[0] is turned OFF
-    KEY = 4'b1110; // KEY[0] is pressed once
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b0010010);
+//*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-
+  //NOTE: following are the tests for anti-clockwise scrolling throught the numbers
 
-    //case 8 : pressing key 8th time with SW[1] OFF, we shold be back to the fifth state
-    KEY = 4'b1110; // KEY[0] is pressed once
-    #5;
-    // print the current values to the Modelsim command line
-    $display("The switch (SW[0]) is ON, key pressed 1 time output is %b, expected output is %b", HEX0, 7'b0110000);
+  $display("checking Sa->Se");
+    SW[0] = 0; // when in Sa should go to state Se
+    #10; // wait for rising edge of clock before checking states and output
+    if( lab4_top_tb.dut.present_state !== `Se ) begin
+       $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Se);
+       err = 1'b1;
+    end
+    if( HEX0 !== `N3 ) begin
+       $display("ERROR ** output is %b, expected %b", HEX0, `N3 );
+       err = 1'b1;
+    end
 
+    $display("checking Se->Sd");
+      SW[0] = 0; // when in Se should go to state Sd
+      #10; // wait for rising edge of clock before checking states and output
+      if( lab4_top_tb.dut.present_state !== `Sd ) begin
+         $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sd);
+         err = 1'b1;
+      end
+      if( HEX0 !== `N8 ) begin
+         $display("ERROR ** output is %b, expected %b", HEX0, `N8 );
+         err = 1'b1;
+      end
+
+      $display("checking Sd->Sc");
+        SW[0] = 0; // when in Sd should go to state Sc
+        #10; // wait for rising edge of clock before checking states and output
+        if( lab4_top_tb.dut.present_state !== `Sc ) begin
+           $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sc);
+           err = 1'b1;
+        end
+        if( HEX0 !== `N9 ) begin
+           $display("ERROR ** output is %b, expected %b", HEX0, `N9 );
+           err = 1'b1;
+        end
+
+        $display("checking Sc->Sb");
+          SW[0] = 0; // when in Sc should go to state Sb
+          #10; // wait for rising edge of clock before checking states and output
+          if( lab4_top_tb.dut.present_state !== `Sb ) begin
+             $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sb);
+             err = 1'b1;
+          end
+          if( HEX0 !== `N7 ) begin
+             $display("ERROR ** output is %b, expected %b", HEX0, `N7 );
+             err = 1'b1;
+          end
+
+          $display("checking Sb->Sa");
+            SW[0] = 0; // when in Sb should go to state Sa
+            #10; // wait for rising edge of clock before checking states and output
+            if( lab4_top_tb.dut.present_state !== `Sa ) begin
+               $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sa);
+               err = 1'b1;
+            end
+            if( HEX0 !== `N5 ) begin
+               $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
+               err = 1'b1;
+            end
+
+
+
+    if( ~err ) $display("PASSED");
     $stop;
     end
-  endmodule
+
+endmodule
