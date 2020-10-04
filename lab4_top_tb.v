@@ -1,9 +1,15 @@
+`timescale 1 ps/ 1 ps
+
+
+
 `define SW 3       //Roll no. 5 7 9 8 3, one state for each number
 `define Sa 3'b000  //5
 `define Sb 3'b001  //7
 `define Sc 3'b010  //9
 `define Sd 3'b011  //8
 `define Se 3'b100  //3
+`define Sf 4'b101  //8
+
 
 //defining the codes for the HEX display
 `define N5 7'b0010010 //5
@@ -38,10 +44,10 @@ module lab4_top_tb();
   #10;  // wait until after rising edge of clock at time 5, before rising edge at time 15
 
   // check whether in expected state
-  if( lab4_top_tb.dut.present_state !== `Sa ) begin // checks the reset
-    $display("ERROR ** state is %b, expected %b",lab4_top_tb.dut.present_state, `Sa );
-    err = 1'b1;
-  end
+  // if( lab4_top_tb.dut.present_state !== `Sa ) begin // checks the reset
+  //   $display("ERROR ** state is %b, expected %b",lab4_top_tb.dut.present_state, `Sa );
+  //   err = 1'b1;
+  // end
   // also check whether output is correct
   if( HEX0 !== `N5 ) begin
    $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
@@ -52,123 +58,149 @@ module lab4_top_tb();
 
 //NOTE: following are the tests for clockwise scrolling of numbers
   $display("checking Sa->Sb");
-    SW[0] = 1; // when in Sa should go to state Sb
+    SW[0] = 0; // when in Sa should go to state Sb
     #10; // wait for rising edge of clock before checking states and output
-    if( lab4_top_tb.dut.present_state !== `Sb ) begin
-       $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sb );
-       err = 1'b1;
-    end
+    // if( lab4_top_tb.dut.present_state !== `Sb ) begin
+    //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sb );
+    //    err = 1'b1;
+    // end
     if( HEX0 !== `N7 ) begin
        $display("ERROR ** output is %b, expected %b", HEX0, `N7 );
        err = 1'b1;
     end
 
     $display("checking Sb->Sc");
-      SW[0] = 1; // when in Sb should go to state Sc
+      SW[0] = 0; // when in Sb should go to state Sc
       #10; // wait for rising edge of clock before checking states and output
-      if( lab4_top_tb.dut.present_state !== `Sc ) begin
-         $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sc );
-         err = 1'b1;
-      end
+      // if( lab4_top_tb.dut.present_state !== `Sc ) begin
+      //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sc );
+      //    err = 1'b1;
+      // end
       if( HEX0 !== `N9 ) begin
          $display("ERROR ** output is %b, expected %b", HEX0, `N9 );
          err = 1'b1;
       end
 
       $display("checking Sc->Sd");
-        SW[0] = 1; // when in Sc should go to state Sd
+        SW[0] = 0; // when in Sc should go to state Sd
         #10; // wait for rising edge of clock before checking states and output
-        if( lab4_top_tb.dut.present_state !== `Sd ) begin
-           $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sd );
-           err = 1'b1;
-        end
+        // if( lab4_top_tb.dut.present_state !== `Sd ) begin
+        //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sd );
+        //    err = 1'b1;
+        // end
         if( HEX0 !== `N8 ) begin
            $display("ERROR ** output is %b, expected %b", HEX0, `N8 );
            err = 1'b1;
         end
 
         $display("checking Sd->Se");
-          SW[0] = 1; // when in Sd should go to state Se
+          SW[0] = 0; // when in Sd should go to state Se
           #10; // wait for rising edge of clock before checking states and output
-          if( lab4_top_tb.dut.present_state !== `Se ) begin
-             $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Se );
-             err = 1'b1;
-          end
+          // if( lab4_top_tb.dut.present_state !== `Se ) begin
+          //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Se );
+          //    err = 1'b1;
+          // end
           if( HEX0 !== `N3 ) begin
              $display("ERROR ** output is %b, expected %b", HEX0, `N3 );
              err = 1'b1;
           end
 
-          $display("checking Se->Sa");
-            SW[0] = 1; // when in Sb should go to state Sc
-            #10; // wait for rising edge of clock before checking states and output
-            if( lab4_top_tb.dut.present_state !== `Sa ) begin
-               $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sa );
-               err = 1'b1;
-            end
-            if( HEX0 !== `N5 ) begin
-               $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
-               err = 1'b1;
-            end
+
+
+            $display("checking Se->Sf");
+              SW[0] = 0; // when in Se should go to state Sf
+              #10; // wait for rising edge of clock before checking states and output
+              // if( lab4_top_tb.dut.present_state !== `Sf ) begin
+              //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sf );
+              //    err = 1'b1;
+              // end
+              if( HEX0 !== `N8 ) begin
+                 $display("ERROR ** output is %b, expected %b", HEX0, `N8 );
+                 err = 1'b1;
+              end
+
+              $display("checking Sf->Sa");
+                SW[0] = 0; // when in Sb should go to state Sc
+                #10; // wait for rising edge of clock before checking states and output
+                // if( lab4_top_tb.dut.present_state !== `Sa ) begin
+                //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sa );
+                //    err = 1'b1;
+                // end
+                if( HEX0 !== `N5 ) begin
+                   $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
+                   err = 1'b1;
+                end
 
 //*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-*-*-*-*-*-*-*-
   //NOTE: following are the tests for anti-clockwise scrolling throught the numbers
 
-  $display("checking Sa->Se");
-    SW[0] = 0; // when in Sa should go to state Se
+  $display("checking Sa->Sf");
+    SW[0] = 1; // when in Sa should go to state Sf
     #10; // wait for rising edge of clock before checking states and output
-    if( lab4_top_tb.dut.present_state !== `Se ) begin
-       $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Se);
-       err = 1'b1;
-    end
-    if( HEX0 !== `N3 ) begin
-       $display("ERROR ** output is %b, expected %b", HEX0, `N3 );
+    // if( lab4_top_tb.dut.present_state !== `Sf ) begin
+    //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sf);
+    //    err = 1'b1;
+    // end
+    if( HEX0 !== `N8 ) begin
+       $display("ERROR ** output is %b, expected %b", HEX0, `N8 );
        err = 1'b1;
     end
 
-    $display("checking Se->Sd");
-      SW[0] = 0; // when in Se should go to state Sd
+    $display("checking Sf->Se");
+      SW[0] = 1; // when in Sf should go to state Se
       #10; // wait for rising edge of clock before checking states and output
-      if( lab4_top_tb.dut.present_state !== `Sd ) begin
-         $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sd);
+      // if( lab4_top_tb.dut.present_state !== `Se ) begin
+      //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Se);
+      //    err = 1'b1;
+      // end
+      if( HEX0 !== `N3 ) begin
+         $display("ERROR ** output is %b, expected %b", HEX0, `N3 );
          err = 1'b1;
       end
+
+    $display("checking Se->Sd");
+      SW[0] = 1; // when in Se should go to state Sd
+      #10; // wait for rising edge of clock before checking states and output
+      // if( lab4_top_tb.dut.present_state !== `Sd ) begin
+      //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sd);
+      //    err = 1'b1;
+      // end
       if( HEX0 !== `N8 ) begin
          $display("ERROR ** output is %b, expected %b", HEX0, `N8 );
          err = 1'b1;
       end
 
       $display("checking Sd->Sc");
-        SW[0] = 0; // when in Sd should go to state Sc
+        SW[0] = 1; // when in Sd should go to state Sc
         #10; // wait for rising edge of clock before checking states and output
-        if( lab4_top_tb.dut.present_state !== `Sc ) begin
-           $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sc);
-           err = 1'b1;
-        end
+        // if( lab4_top_tb.dut.present_state !== `Sc ) begin
+        //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sc);
+        //    err = 1'b1;
+        // end
         if( HEX0 !== `N9 ) begin
            $display("ERROR ** output is %b, expected %b", HEX0, `N9 );
            err = 1'b1;
         end
 
         $display("checking Sc->Sb");
-          SW[0] = 0; // when in Sc should go to state Sb
+          SW[0] = 1; // when in Sc should go to state Sb
           #10; // wait for rising edge of clock before checking states and output
-          if( lab4_top_tb.dut.present_state !== `Sb ) begin
-             $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sb);
-             err = 1'b1;
-          end
+          // if( lab4_top_tb.dut.present_state !== `Sb ) begin
+          //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sb);
+          //    err = 1'b1;
+          // end
           if( HEX0 !== `N7 ) begin
              $display("ERROR ** output is %b, expected %b", HEX0, `N7 );
              err = 1'b1;
           end
 
           $display("checking Sb->Sa");
-            SW[0] = 0; // when in Sb should go to state Sa
+            SW[0] = 1; // when in Sb should go to state Sa
             #10; // wait for rising edge of clock before checking states and output
-            if( lab4_top_tb.dut.present_state !== `Sa ) begin
-               $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sa);
-               err = 1'b1;
-            end
+            // if( lab4_top_tb.dut.present_state !== `Sa ) begin
+            //    $display("ERROR ** state is %b, expected %b", lab4_top_tb.dut.present_state, `Sa);
+            //    err = 1'b1;
+            // end
             if( HEX0 !== `N5 ) begin
                $display("ERROR ** output is %b, expected %b", HEX0, `N5 );
                err = 1'b1;

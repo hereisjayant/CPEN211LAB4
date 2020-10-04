@@ -9,66 +9,66 @@ z2
 cModel Technology
 dC:/Users/herei/Desktop/CPEN211/programs/lab3
 vlab4_top
-Z0 !s110 1593171867
+!s110 1601816408
 !i10b 1
-!s100 2<z^5oi<^R>L=GAmD2Yb93
-IFOMYSLi>UkT36[AB]44LA0
-Z1 VDg1SIo80bB@j0V0VzS_@n1
-Z2 dC:/Users/herei/Desktop/CPEN211/programs/lab4
-Z3 w1593169661
-Z4 8C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
-Z5 FC:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v
-L0 16
-Z6 OV;L;10.5b;63
+!s100 bbLSOVZ>caT7cCzl<9ej`0
+I?EJPWGIF8l?Y<C1QYKifm0
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4
+w1601815634
+8C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.vo
+FC:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.vo
+L0 31
+Z2 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1593171866.000000
-Z8 !s107 C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
-Z9 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top.v|
+!s108 1601816408.000000
+!s107 C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.vo|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.vo|
 !i113 1
-Z10 o-work work
-Z11 tCvgOpt 0
+Z3 o-work work
+Z4 tCvgOpt 0
 vlab4_top_tb
-R0
+!s110 1601816616
 !i10b 1
-!s100 T?MAnlJLiS0GZi624][4?1
-IebCM:K>L>3A:>_G?Va>im0
+!s100 8lie4=3zD9j>HVFEj@ZXW1
+Izzle89OOJjlojj<Tf?YFP0
+R0
 R1
+w1601816611
+8C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v
+FC:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v
+L0 21
 R2
-w1593171862
-8C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v
-FC:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v
-L0 15
-R6
 r1
 !s85 0
 31
-!s108 1593171867.000000
-!s107 C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN211/programs/lab4/lab4_top_tb.v|
+!s108 1601816616.000000
+!s107 C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v|
 !i113 1
-R10
-R11
-vvDFF
-R0
-!i10b 1
-!s100 oLM1o]><i7RnEcGl5m<nY0
-I?E0l0664gfkLgf?H`hmdB1
-R1
-R2
 R3
 R4
-R5
-L0 46
-R6
+vvDFF
+!s110 1601814679
+!i10b 1
+!s100 PFAO3I>[WRhj9cY8SPP`I1
+IP_4VGNM1_zb31[c5LFZb51
+R0
+R1
+w1601813991
+8C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.v
+FC:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.v
+L0 48
+R2
 r1
 !s85 0
 31
-R7
-R8
-R9
+!s108 1601814679.000000
+!s107 C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.v|
 !i113 1
-R10
-R11
+R3
+R4
 nv@d@f@f

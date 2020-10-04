@@ -1,0 +1,148 @@
+# Reading C:/intelFPGA/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# OpenFile C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4.mpf
+# Loading project lab4
+# 0 compiles, 2 failed with no errors.
+# Compile of lab4_top.v was successful.
+# Compile of lab4_top_tb.v failed with 6 errors.
+# 2 compiles, 1 failed with 6 errors.
+# Compile of lab4_top_tb.v was successful.
+vsim -gui work.lab4_top_tb
+# vsim -gui work.lab4_top_tb 
+# Start time: 18:02:13 on Oct 04,2020
+# Loading work.lab4_top_tb
+# Loading work.lab4_top
+# Loading work.vDFF
+add wave -position end  sim:/lab4_top_tb/SW
+add wave -position end  sim:/lab4_top_tb/KEY
+add wave -position end  sim:/lab4_top_tb/err
+add wave -position end  sim:/lab4_top_tb/HEX0
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: herei  Hostname: DESKTOP-245UJMC  ProcessID: 5136
+#           Attempting to use alternate WLF file "./wlfte396j7".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlfte396j7
+run -all
+# checking Sa->Sb
+# checking Sb->Sc
+# checking Sc->Sd
+# checking Sd->Se
+# checking Se->Sf
+# checking Sf->Sa
+# checking Sa->Sf
+# checking Sf->Se
+# checking Se->Sd
+# checking Sd->Sc
+# checking Sc->Sb
+# checking Sb->Sa
+# PASSED
+# ** Note: $stop    : C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v(208)
+#    Time: 130 ps  Iteration: 0  Instance: /lab4_top_tb
+# Break in Module lab4_top_tb at C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v line 208
+add wave -position end  sim:/lab4_top_tb/dut/present_state
+restart -f
+run -all
+# checking Sa->Sb
+# checking Sb->Sc
+# checking Sc->Sd
+# checking Sd->Se
+# checking Se->Sf
+# checking Sf->Sa
+# checking Sa->Sf
+# checking Sf->Se
+# checking Se->Sd
+# checking Sd->Sc
+# checking Sc->Sb
+# checking Sb->Sa
+# PASSED
+# ** Note: $stop    : C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v(208)
+#    Time: 130 ps  Iteration: 0  Instance: /lab4_top_tb
+# Break in Module lab4_top_tb at C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v line 208
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_wave_rtl.do
+quit -sim
+# End time: 18:27:15 on Oct 04,2020, Elapsed time: 0:25:02
+# Errors: 0, Warnings: 2
+# Compile of lab4_top_tb.v was successful.
+# reading C:/intelFPGA/18.1/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project Lab4_Part2
+# Compile of lab4_top_tb.v was successful.
+# Compile of lab4_top.vo was successful.
+# 2 compiles, 0 failed with no errors.
+vsim -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver \
+-L 220model_ver -L sgate_ver -L altera_lnsim_ver lab4_top_tb
+# vsim -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver lab4_top_tb 
+# Start time: 18:30:32 on Oct 04,2020
+# Loading work.lab4_top_tb
+# Loading work.lab4_top
+# ** Error (suppressible): (vsim-3009) [TSCALE] - Module 'lab4_top_tb' does not have a timeunit/timeprecision specification in effect, but other modules do.
+#    Time: 0 ps  Iteration: 0  Instance: /lab4_top_tb/dut File: C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top.vo
+# Loading cyclonev_ver.cyclonev_io_obuf
+# Loading cyclonev_ver.cyclonev_io_ibuf
+# Loading cyclonev_ver.cyclonev_clkena
+# Loading cyclonev_ver.cyclonev_lcell_comb
+# Loading altera_ver.dffeas
+# Error loading design
+# End time: 18:30:33 on Oct 04,2020, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# Compile of lab4_top_tb.v was successful.
+vsim -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver \
+-L 220model_ver -L sgate_ver -L altera_lnsim_ver lab4_top_tb
+# vsim -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver lab4_top_tb 
+# Start time: 18:31:15 on Oct 04,2020
+# Loading work.lab4_top_tb
+# Loading work.lab4_top
+# Loading cyclonev_ver.cyclonev_io_obuf
+# Loading cyclonev_ver.cyclonev_io_ibuf
+# Loading cyclonev_ver.cyclonev_clkena
+# Loading cyclonev_ver.cyclonev_lcell_comb
+# Loading altera_ver.dffeas
+# ** Warning: (vsim-3008) C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v(47): [CNNODP] - Component name (present_state) is not on a downward path.
+#    Time: 0 ps  Iteration: 0  Instance: /lab4_top_tb File: C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v
+# ** Error: (vsim-3043) C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v(47): Unresolved reference to 'present_state' in lab4_top_tb.dut.present_state.
+#    Time: 0 ps  Iteration: 0  Instance: /lab4_top_tb File: C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v
+# Loading altera_ver.PRIM_GDFF_LOW
+# Error loading design
+# End time: 18:31:16 on Oct 04,2020, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 1
+# Compile of lab4_top_tb.v was successful.
+vsim -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver \
+-L 220model_ver -L sgate_ver -L altera_lnsim_ver lab4_top_tb
+# vsim -t 1ps -L cyclonev_ver -L altera_ver -L altera_mf_ver -L 220model_ver -L sgate_ver -L altera_lnsim_ver lab4_top_tb 
+# Start time: 18:33:41 on Oct 04,2020
+# Loading work.lab4_top_tb
+# Loading work.lab4_top
+# Loading cyclonev_ver.cyclonev_io_obuf
+# Loading cyclonev_ver.cyclonev_io_ibuf
+# Loading cyclonev_ver.cyclonev_clkena
+# Loading cyclonev_ver.cyclonev_lcell_comb
+# Loading altera_ver.dffeas
+# Loading altera_ver.PRIM_GDFF_LOW
+add wave -position end  sim:/lab4_top_tb/SW
+add wave -position end  sim:/lab4_top_tb/KEY
+add wave -position end  sim:/lab4_top_tb/err
+add wave -position end  sim:/lab4_top_tb/HEX0
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: herei  Hostname: DESKTOP-245UJMC  ProcessID: 5136
+#           Attempting to use alternate WLF file "./wlftznacs1".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftznacs1
+add wave -position end  sim:/lab4_top_tb/dut/\STATE|out 
+run -all
+# checking Sa->Sb
+# checking Sb->Sc
+# checking Sc->Sd
+# checking Sd->Se
+# checking Se->Sf
+# checking Sf->Sa
+# checking Sa->Sf
+# checking Sf->Se
+# checking Se->Sd
+# checking Sd->Sc
+# checking Sc->Sb
+# checking Sb->Sa
+# PASSED
+# ** Note: $stop    : C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v(212)
+#    Time: 130 ps  Iteration: 0  Instance: /lab4_top_tb
+# Break in Module lab4_top_tb at C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_top_tb.v line 212
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/herei/Desktop/CPEN/CPEN211_2020_Winter_Labs/From_Github/Lab4/CPEN211Lab4/lab4_wave_gatelevel.do
+# End time: 18:36:50 on Oct 04,2020, Elapsed time: 0:03:09
+# Errors: 0, Warnings: 2
