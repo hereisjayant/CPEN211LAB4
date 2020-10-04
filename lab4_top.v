@@ -1,10 +1,11 @@
 
-  `define SW 3       //Roll no. 5 7 9 8 3, one state for each number
+  `define SW 3       //Roll no. 5 7 9 8 3 8, one state for each number
   `define Sa 3'b000  //5
   `define Sb 3'b001  //7
   `define Sc 3'b010  //9
   `define Sd 3'b011  //8
   `define Se 3'b100  //3
+  `define Sf 4'b101  //8
 
   //defining the codes for the HEX display
   `define N5 7'b0010010 //5
@@ -30,11 +31,12 @@ module lab4_top(SW,KEY,HEX0);
   // next state and output logic
   always @(*) begin
     case (present_state) //Checks the present state and the Switch
-      `Sa: {next_state,HEX0} = { (SW[0] ? `Sb : `Se), `N5 }; //checks the current state and the switch and accordingly
-      `Sb: {next_state,HEX0} = { (SW[0] ? `Sc : `Sa), `N7 }; // assigns the next state, and the output to HEX0
-      `Sc: {next_state,HEX0} = { (SW[0] ? `Sd : `Sb), `N9 };
-      `Sd: {next_state,HEX0} = { (SW[0] ? `Se : `Sc), `N8 };
-      `Se: {next_state,HEX0} = { (SW[0] ? `Sa : `Sd), `N3 };
+      `Sa: {next_state,HEX0} = { (!SW[0] ? `Sb : `Sf), `N5 }; //checks the current state and the switch and accordingly
+      `Sb: {next_state,HEX0} = { (!SW[0] ? `Sc : `Sa), `N7 }; // assigns the next state, and the output to HEX0
+      `Sc: {next_state,HEX0} = { (!SW[0] ? `Sd : `Sb), `N9 };
+      `Sd: {next_state,HEX0} = { (!SW[0] ? `Se : `Sc), `N8 };
+      `Se: {next_state,HEX0} = { (!SW[0] ? `Sf : `Sd), `N3 };
+      `Sf: {next_state,HEX0} = { (!SW[0] ? `Sa : `Se), `N8 };
       default: {next_state,HEX0} = 10'bxxxxxxxxxx;     /// checks for errors
     endcase
   end
